@@ -36,6 +36,7 @@
 ## ✅ Pull Request 규칙
 - **PR 제목**: `[week00] 이름 n주차 실습`
 - **내용**: 튜터링 및 실습 진행 간에 느낀 점 한마디
+<img width="1425" height="811" alt="PR 작성 예시" src="https://github.com/user-attachments/assets/297682d2-854b-49d9-af5a-a08f7d00d0d5" />
 
 ### 👥 Reviewer & Assignee
 - **Reviewer**: `JeongGyul` (튜터만 지정)
