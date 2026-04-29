@@ -1,5 +1,6 @@
 package com.dongyang.studyservlet;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -19,11 +20,20 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // step1. 파라미터 받음.
         String id = request.getParameter("id");
         String pw = request.getParameter("pw");
 
-        System.out.println("id: " + id);
-        System.out.println("pw: " + pw);
+        // step2. JDBC
+        if(id.equals("dong") && pw.equals("123")) {
+            // 성공
+            request.setAttribute("userName", "김동양");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("loginOk.jsp");
+            dispatcher.forward(request,response);
+        } else {
+            // 실패
+            response.sendRedirect("loginFail.jsp");
+        }
     }
 
     @Override
