@@ -7,6 +7,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
@@ -28,14 +29,11 @@ public class LoginServlet extends HttpServlet {
         // 2. JDBC
         if(id.equals("dong") && pw.equals("123")) {
             // 조건 충족시 (성공)
-            request.setAttribute("userName", "김동양");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("loginOK.jsp");
-            dispatcher.forward(request, response);
-        }else{
-            //실패
-            response.sendRedirect("loginFail.jsp");
-        }
+            HttpSession session = request.getSession();
+            session.setAttribute("userName", "김동양");
 
+        }
+    response.sendRedirect("LoginForm.jsp");
 
 
     }
