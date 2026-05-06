@@ -9,7 +9,7 @@
 | 역할 | 이름 | GitHub |
 | :--- | :--- | :--- |
 | **Tutor** | **최정규** | [**@JeongGyul**](https://github.com/JeongGyul) |
-| Tutee | 최진서 | [@choijinseo04-collab](https://github.com/choijinseo04-collab) |
+| Tutee | 최진서 | [@jinseo04](https://github.com/jinseo04) |
 | Tutee | 박다윗 | [@DavidPark04](https://github.com/DavidPark04) |
 | Tutee | 임상혁 | [@SH0315](https://github.com/SH0315) |
 
