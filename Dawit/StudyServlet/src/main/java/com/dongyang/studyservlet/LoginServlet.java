@@ -7,6 +7,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
@@ -22,16 +23,22 @@ public class LoginServlet extends HttpServlet {
         // 1. 파라미터 받음.
         String id = request.getParameter("id");
         String pw = request.getParameter("pw");
+
+        MemberDTO mdto = new MemberDTO();
+        mdto.setMemberid(id);
+        mdto.setPassword(pw);
+
+        MemberDAO mdao = new MemberDAO();
+        boolean result = mdao.LoginCheck(mdto);
+
         // 2. JDBC
-        if(id.equals("dong") && pw.equals("123")){
+        if(result){
             //성공
-            request.setAttribute("userName", "김동양");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("LoginOk.jsp");
-            dispatcher.forward(request,response);
-        } else {
-            //실패
-            response.sendRedirect("LoginFail.jsp");
+            HttpSession session = request.getSession();
+            session.setAttribute("userName", "김동양");
+
         }
+        response.sendRedirect("LoginForm.jsp");
     }
 
 
