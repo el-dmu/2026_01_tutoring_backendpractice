@@ -14,24 +14,16 @@ public class MemberDAO {
 
 
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/servletdb", "root", "jinseo");
+            conn = jdbcConnectUtil.getConnection();
             pstmt = conn.prepareStatement("select * from memberTbl where memberid = ? and password = ?");
             pstmt.setString(1, mdto.getMemberid());
             pstmt.setString(2, mdto.getPassword());
             rs = pstmt.executeQuery();
             loginResult = rs.next();
-        } catch (ClassNotFoundException | SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-
-            try {
-                conn.close();
-                pstmt.close();
-                rs.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            jdbcConnectUtil.close(conn,pstmt,rs);
         }
         return loginResult;
     }
