@@ -5,19 +5,17 @@
     <title>Login Form</title>
 </head>
 <body>
-<h1>로그인</h1>
+
+<%@ include file="header.jsp" %>
+
 <%
-    String userName = (String)session.getAttribute("userName");
-
     if (userName != null) {
-
-
 %>
 
 <form action = "logout.do" method="post">
     <input type = "submit" value="로그아웃">
-
 </form>
+
 <%
     } else {
 %>
