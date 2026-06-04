@@ -5,11 +5,10 @@
     <title>JSP - Hello World</title>
 </head>
 <body>
-<h1>로그인</h1>
+
+<%@ include file="header.jsp" %>
 
 <%
-    String userName = (String)session.getAttribute("userName");
-
     if(userName != null) {
 %>
 
