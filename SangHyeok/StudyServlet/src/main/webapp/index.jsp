@@ -5,8 +5,8 @@
     <title>JSP - Hello World</title>
 </head>
 <body>
-<h3>메뉴: <a href="LoginForm.jsp">로그인</a></h3>
-
+<%@ include file="header.jsp"%>
+<h1>환영합니다.</h1>
 <br/>
 </body>
 </html>
