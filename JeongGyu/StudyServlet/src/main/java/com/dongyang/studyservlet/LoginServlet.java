@@ -29,7 +29,6 @@ public class LoginServlet extends HttpServlet {
         mdto.setPassword(pw);
 
         MemberDAO mdao = new MemberDAO();
-        MemberDAO mdao2 = new MemberDAO();
         boolean result = mdao.loginCheck(mdto);
 
         // step2. JDBC
